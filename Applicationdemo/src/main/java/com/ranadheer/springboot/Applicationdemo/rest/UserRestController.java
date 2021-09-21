@@ -29,9 +29,15 @@ public class UserRestController {
     public void updateUser(@RequestBody User user){
         userService.updateUser(user);
     }
-    @GetMapping("/user/{userId}")
-    public User display(@PathVariable int userId){
-       User user = userService.getUser(userId);
+    /* @GetMapping("/user/{userName}")
+    public User display(@PathVariable String userName){
+       User user = userService.getUser(userName);
+       return user;
+    }
+    */
+    @GetMapping("/user/{userName}")
+    public User display(@PathVariable String userName){
+       User user = userService.getUser(userName);
        return user;
     }
     @DeleteMapping("/user/{userId}")

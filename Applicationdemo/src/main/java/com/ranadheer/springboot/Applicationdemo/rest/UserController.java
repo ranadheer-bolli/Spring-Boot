@@ -1,14 +1,21 @@
 package com.ranadheer.springboot.Applicationdemo.rest;
 
+import com.ranadheer.springboot.Applicationdemo.entity.User;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/user")
 public class UserController {
 
-    @RequestMapping("/register")
-    public String register(){
-        return "register";
+    @GetMapping("login")
+    public String login(){
+        return "login-form";
+    }
+
+    @GetMapping("/register")
+    public String register(@ModelAttribute User user){
+        System.out.println(user.getUserName());
+        return "registration-form";
     }
 }
